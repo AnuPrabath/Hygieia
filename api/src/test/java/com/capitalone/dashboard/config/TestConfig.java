@@ -36,7 +36,7 @@ public class TestConfig {
 	public AuthenticationService authenticationService() {
 		return Mockito.mock(AuthenticationService.class);
 	}
-	
+
 	@Bean
 	public AuthenticationResponseService authenticationResponseService() {
 		return Mockito.mock(AuthenticationResponseService.class);
@@ -96,49 +96,51 @@ public class TestConfig {
 	public ScopeService scopeService() {
 		return Mockito.mock(ScopeService.class);
 	}
-	
+
 	@Bean
 	public EncryptionService encryptionService() {
 		return Mockito.mock(EncryptionService.class);
 	}
 
-    @Bean
-    public BinaryArtifactService artifactService() {
-        return Mockito.mock(BinaryArtifactService.class);
-    }
+  @Bean
+  public BinaryArtifactService artifactService() {
+    return Mockito.mock(BinaryArtifactService.class);
+  }
 
 	@Bean
 	public PipelineService pipelineService() {
 		return Mockito.mock(PipelineService.class);
 	}
-	
+
 	@Bean
-    public CloudInstanceService cloudInstanceService() {
-        return Mockito.mock(CloudInstanceService.class);
-    }
+  public CloudInstanceService cloudInstanceService() {
+    return Mockito.mock(CloudInstanceService.class);
+  }
 
-    @Bean
-    public CloudSubnetService cloudSubnetService() {
-        return Mockito.mock(CloudSubnetService.class);
-    }
+  @Bean
+  public CloudSubnetService cloudSubnetService() {
+    return Mockito.mock(CloudSubnetService.class);
+  }
 
-    @Bean
-    public CloudVirtualNetworkService cloudVirtualNetworkService() {
-        return Mockito.mock(CloudVirtualNetworkService.class);
-    }
+  @Bean
+  public CloudVirtualNetworkService cloudVirtualNetworkService() {
+    return Mockito.mock(CloudVirtualNetworkService.class);
+  }
 
-    @Bean
-    public CloudVolumeService cloudVolumeService() {
-        return Mockito.mock(CloudVolumeService.class);
-    }
-    
-    @Bean
-    public PaginationHeaderUtility paginationHeaderUtility() {
-    	return Mockito.mock(PaginationHeaderUtility.class);
-    }
-
+  @Bean
+  public CloudVolumeService cloudVolumeService() {
+    return Mockito.mock(CloudVolumeService.class);
+  }
+  @Bean
+  public PaginationHeaderUtility paginationHeaderUtility() {
+  	return Mockito.mock(PaginationHeaderUtility.class);
+  }
 	@Bean
 	public TeamService teamService() {
 		return Mockito.mock(TeamService.class);
+	}
+  @Bean
+  public PerformanceService performanceService() {
+		return Mockito.mock(PerformanceService.class);
 	}
 }
