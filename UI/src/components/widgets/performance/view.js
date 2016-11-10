@@ -114,13 +114,11 @@
                   ctrl.appname2 = element.options.appName;
                 }
               });
-            });
 
-
-            performanceData.appPerformance({componentId: $scope.widgetConfig.componentId}).then(function(data) {
-
-                processResponse(data.result);
-                deferred.resolve(data.lastUpdated);
+              performanceData.appPerformance({componentId: $scope.widgetConfig.componentId}).then(function(data) {
+                  processResponse(data.result);
+                  deferred.resolve(data.lastUpdated);
+              });
             });
             return deferred.promise;
         };
@@ -172,8 +170,6 @@
 
 
 
-            console.log(ctrl.appname2, ctrl.appID);
-
             _(data).sortBy('timeStamp').__wrapped__[0].metrics.forEach(function(innerelem){
               if (innerelem.name === 'Business Transaction Health Percent'){
                 ctrl.businessavg = Math.round(innerelem.value*100 *10)/10;
@@ -187,7 +183,7 @@
               if (innerelem.name === 'Response Time Severity'){
                 ctrl.responsevalue = innerelem.value;
               }
-              if (innerelem.name === 'Yolo JSON Object'){
+              if (innerelem.name === 'Violation Object'){
                 ctrl.violations = innerelem.value;
               }
             });
@@ -210,7 +206,7 @@
               var mins = (metrictime/60000) % 60;
               var hours = (((metrictime/60/60000) % 24) + 19) % 24;
               element.metrics.forEach(function(innerelem){
-                if (innerelem.name === "Yolo JSON Object"){
+                if (innerelem.name === "Violation Object"){
                   healthruleviolations.push({
                     metrictime: metrictime,
                     value: innerelem.value});
