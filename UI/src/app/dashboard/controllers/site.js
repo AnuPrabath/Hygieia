@@ -23,6 +23,7 @@
         // public methods
         ctrl.createDashboard = createDashboard;
         ctrl.deleteDashboard = deleteDashboard;
+        ctrl.manageTemplates = manageTemplates;
         ctrl.open = open;
         ctrl.logout = logout;
         ctrl.admin = admin;
@@ -89,6 +90,10 @@
                 controller: 'CreateDashboardController',
                 controllerAs: 'ctrl'
             });
+        }
+
+        function manageTemplates() {
+            $location.path('/templates');
         }
 
         function open(dashboardId) {
