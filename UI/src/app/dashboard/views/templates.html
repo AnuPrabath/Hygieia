@@ -1,27 +1,27 @@
 <div id="site" class="main-content">
-    <ng-include src="ctrl.templateUrl"></ng-include>
+    <ng-include src="ctrl.navUrl"></ng-include>
 
     <div class="col-md-8 col-md-push-2">
         <div class="widget-modal r">
             <div class="widget-modal-heading">
-                Select Your Dashboard
+                Select Your Template
             </div>
             <div class="widget-modal-body">
                 <div class="text-center">
                     <div class="btn-group dashboard-type-list" role="group" aria-label="Basic example">
                         <button type="button"
                                 class="btn btn-secondary"
-                                ng-class="{'btn-info': ctrl.dashboardType == undefined}"
-                                ng-click="ctrl.setType()">All dashboards</button>
+                                ng-class="{'btn-info': ctrl.templateType == undefined}"
+                                ng-click="ctrl.setType()">All Templates</button>
 
                         <button type="button"
                                 class="btn btn-secondary"
-                                ng-repeat="item in ctrl.dashboardTypes"
-                                ng-class="{'btn-info': ctrl.dashboardType == item.id}"
+                                ng-repeat="item in ctrl.templateTypes"
+                                ng-class="{'btn-info': ctrl.templateType == item.id}"
                                 ng-click="ctrl.setType(item.id)">
                             <span class="fa {{item.icon}}" ng-if="item.icon"></span>
 
-                            {{item.name}} dashboards
+                            {{item.name}} templates
                         </button>
                     </div>
                 </div>
@@ -31,51 +31,35 @@
                            id="filter"
                            class="form-control text-center"
                            ng-model="ctrl.search"
-                           placeholder="Type to find dashboard" />
+                           placeholder="Type to find template" />
                 </div>
 
                 <div class="row gap">
                     <div class="col-sm-4 col-sm-push-8 text-center">
                         <div>
-                            <div class="create-dashboard-button btn btn-default btn-wide-2x" ng-click="ctrl.createDashboard()">
+                            <div class="create-dashboard-button btn btn-default btn-wide-2x" ng-click="ctrl.createTemplate()">
                                 <span class="fa fa-stack fa-lg">
                                     <span class="fa-circle-thin fa-stack-2x"></span>
                                     <span class="fa-plus fa-stack-1x"></span>
                                 </span>
                                 <br/>
-                                Create a new<br/>dashboard
-                            </div>
-                        </div>
-                        <div>
-                            <div class="create-dashboard-button btn btn-default btn-wide-2x" ng-click="ctrl.manageTemplates()">
-                                <span class="fa fa-stack fa-lg">
-                                    <span class="fa-circle-thin fa-stack-2x"></span>
-                                    <span class="fa-plus fa-stack-1x"></span>
-                                </span>
-                                <br/>
-                                Manage your<br/>templates
+                                Create a new<br/>template
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-8 col-sm-pull-4">
-                        <div ng-show="ctrl.showAuthentication">
-                            <div class="text-2x">My Dashboards <span class="label label-default"></span></div>
+                        <div>
+                            <div class="text-2x">My Templates <span class="label label-default"></span></div>
 
-                            <div class="text-center" ng-hide="ctrl.mydash">Loading Your Dashboards...</div>
-                            <div class="text-center" ng-show="ctrl.mydash && !mydashboards.length">
+                            <div class="text-center" ng-hide="ctrl.mytemplate">Loading Your Templates...</div>
+                            <div class="text-center" ng-show="ctrl.mytemplate && !mytemplates.length">
                                 No results
                             </div>
 
                             <ul class="list-animate list-group text-left">
-                                <li class="list-group-item" ng-repeat="myitem in mydashboards = (ctrl.mydash | filter:ctrl.filterDashboards | orderBy: 'name')">
+                                <li class="list-group-item" ng-repeat="myitem in mytemplates = (ctrl.mytemplate | filter:ctrl.filterTemplates | orderBy: 'name')">
                                     <span class="pull-right">
-
-
-                                       <a href ng-click="ctrl.renameDashboard(myitem)">
-                                           <span class="fa fa-lg fa-pencil-square-o text-success"></span>
-                                       </a>
-
-                                       <a href ng-click="ctrl.deleteDashboard(myitem)">
+                                       <a href ng-click="ctrl.deleteTemplate(myitem)">
                                            <span class="fa fa-lg fa-trash text-danger"></span>
                                        </a>
                                     </span>
@@ -89,13 +73,13 @@
                         </div>
 
                         <div class="gap">
-                            <div class="text-2x">All Dashboards</span></div>
+                            <div class="text-2x">All Templates</span></div>
 
-                            <div class="text-center" ng-hide="ctrl.dashboards">Loading Dashboards...</div>
+                            <div class="text-center" ng-hide="ctrl.templates">Loading Templates...</div>
 
                             <ul class="list-animate list-group text-left">
                                 <li class="list-group-item clickable" ng-click="ctrl.open(item.id)"
-                                    ng-repeat="item in filteredDashboards = (ctrl.dashboards | filter: ctrl.filterDashboards | orderBy:'name')">
+                                    ng-repeat="item in filteredTemplates = (ctrl.templates | filter: ctrl.filterTemplates | orderBy:'name')">
                                     <span class="fa fa-lg left-icon" ng-class="{'fa-cubes' : item.isProduct}"></span>
 
                                     <span class="fa fa-angle-right list-group-item-right"></span>
@@ -105,7 +89,7 @@
                                 </li>
                             </ul>
 
-                            <div class="text-center" ng-show="ctrl.dashboards && !filteredDashboards.length">
+                            <div class="text-center" ng-show="ctrl.templates && !filteredTemplates.length">
                                 No results
                             </div>
                         </div>
@@ -115,3 +99,4 @@
         </div>
     </div>
 </div>
+
