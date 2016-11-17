@@ -15,9 +15,11 @@ public class AppdynamicsSettings {
     private String account;
     private String cron;
     private Integer timeWindow = 15; //default to 15 minutes
-    @Value("#{'${instance.urls}'.split(',')}")
-    private List<String> instanceUrls;
+    private String instanceUrls;
 
+    public String getInstanceUrls() {
+        return instanceUrls;
+    }
 
 
     public String getAccount() {
@@ -28,12 +30,12 @@ public class AppdynamicsSettings {
         this.account = account;
     }
 
-    public List<String> getInstanceUrls() {
+    public List<String> getInstanceUrlList() {
 
-        return instanceUrls;
+        return Arrays.asList(instanceUrls.split(","));
     }
 
-    public void setInstanceUrls(List<String> instanceUrls) {
+    public void setInstanceUrls(String instanceUrls) {
         this.instanceUrls = instanceUrls;
     }
 

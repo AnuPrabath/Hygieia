@@ -200,10 +200,6 @@ public class DefaultAppdynamicsClient implements AppdynamicsClient {
         metric.setValue(callsPerMinVal * 15);
         calculatedMetrics.add(metric);
 
-        metric = new PerformanceMetric();
-        metric.setName("Dashboard URL");
-        metric.setValue(settings.getDashboardUrl());
-        calculatedMetrics.add(metric);
 
         return calculatedMetrics;
     }

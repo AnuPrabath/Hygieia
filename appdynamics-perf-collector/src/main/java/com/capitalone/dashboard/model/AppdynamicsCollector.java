@@ -36,7 +36,7 @@ public class AppdynamicsCollector extends Collector {
         protoType.setOnline(true);
         protoType.setEnabled(true);
         protoType.setLastExecuted(System.currentTimeMillis());
-        protoType.setInstanceUrl(settings.getInstanceUrls());
+        protoType.setInstanceUrl(settings.getInstanceUrlList());
         return protoType;
     }
 }
