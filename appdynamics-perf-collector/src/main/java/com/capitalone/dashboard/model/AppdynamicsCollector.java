@@ -13,14 +13,6 @@ import java.util.List;
 public class AppdynamicsCollector extends Collector {
     private List<String> instanceUrls;
 
-    public List<String> getInstanceUrls() {
-        return instanceUrls;
-    }
-
-    public void setInstanceUrl(List<String> instanceUrls) {
-        this.instanceUrls = instanceUrls;
-    }
-
     /**
      * Creates a static prototype of the Feature Collector, which includes any
      * specific settings or configuration required for the use of this
@@ -38,5 +30,13 @@ public class AppdynamicsCollector extends Collector {
         protoType.setLastExecuted(System.currentTimeMillis());
         protoType.setInstanceUrl(settings.getInstanceUrlList());
         return protoType;
+    }
+
+    public List<String> getInstanceUrls() {
+        return instanceUrls;
+    }
+
+    public void setInstanceUrl(List<String> instanceUrls) {
+        this.instanceUrls = instanceUrls;
     }
 }

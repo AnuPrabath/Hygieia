@@ -1,26 +1,29 @@
 package com.capitalone.dashboard.collector;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.List;
 
 
 @Component
 @ConfigurationProperties(prefix = "appdynamics")
 public class AppdynamicsSettings {
-    private String username;
-    private String password;
+    private String username;//="srvHygieiaPerf";
+    private String password;//="Capital1";
     private String account;
-    private String cron;
+    private String cron;//="1 * * * * *";
     private Integer timeWindow = 15; //default to 15 minutes
-    private String instanceUrls;
+    private String instanceUrls;//="http://appdyn-hqa-c01.kdc.capitalone.com,http://appdyn-hqa-c01.kdc.capitalone.com,http://appdyn-hqa-c01.kdc.capitalone.com";
 
     public String getInstanceUrls() {
         return instanceUrls;
     }
 
+    public void setInstanceUrls(String instanceUrls) {
+        this.instanceUrls = instanceUrls;
+    }
 
     public String getAccount() {
         return account;
@@ -33,10 +36,6 @@ public class AppdynamicsSettings {
     public List<String> getInstanceUrlList() {
 
         return Arrays.asList(instanceUrls.split(","));
-    }
-
-    public void setInstanceUrls(String instanceUrls) {
-        this.instanceUrls = instanceUrls;
     }
 
     /**

@@ -42,3 +42,5 @@ application.properties
 /dashboard.properties
 
 /appdynamics-perf-collector/src/main/resources/appdynamics.properties
+/appdynamics-perf-collector/appdynamics.properties
+/api/api.properties
