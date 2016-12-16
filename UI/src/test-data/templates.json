@@ -1,0 +1,18 @@
+{
+    "result": [
+        {
+            "id": 1234567890,
+            "name": "Eric's Template",
+            "widgets": [
+                {
+                    "performance": {
+                        "x": 0,
+                        "y": 0,
+                        "width": 10,
+                        "height": 10
+                    }
+                }
+            ]
+        }
+    ]
+}

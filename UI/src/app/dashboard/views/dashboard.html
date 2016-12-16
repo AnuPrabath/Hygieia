@@ -1,3 +1,35 @@
 <div id="dashboard" class="main-content">
-    <ng-include src="ctrl.templateUrl"></ng-include>
+    <div id="header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+
+                <a ng-href="#/" class="dashboard-logo"></a>
+
+                {{::ctrl.dashboard.title}}
+
+                <div class="pipeline-toggle btn-group">
+
+                    <span class="btn" ng-repeat="tab in template.tabs" ng-click="template.toggleView($index)"
+                          ng-class="tab.name == template.widgetView ? 'btn-primary' : 'btn-default'">
+                        <span ng-class="tab.name === 'Widget' ? 'fa fa-th' : tab.name === 'Pipeline' ? 'fa fa-task' : 'fa fa-cloud'"></span>
+                        {{tab.name}}
+                    </span>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div widget-container dashboard="ctrl.dashboard">
+        <div gridstack class="grid-stack" options="options" on-change="ctrl.onChange(event,items)" on-drag-start="ctrl.onDragStart(event,ui)" on-drag-stop="ctrl.onDragStop(event,ui)" on-resize-start="ctrl.onResizeStart(event,ui)" on-resize-stop="ctrl.onResizeStop(event,ui)">
+            <div gridstack-item ng-repeat="(title, w) in widgets" class="grid-stack-item" gs-item-x="w.x" gs-item-y="w.y"
+                    gs-item-width="w.width" gs-item-height="w.height" gs-item-autopos="1">
+                    <div class="grid-stack-item-content">
+                        <widget name="{{title}}"></widget>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        {{ widgets }}
+    </div>
 </div>

@@ -46,6 +46,8 @@
             verticalMargin: 10
         };
 
+        $scope.templateManager = true;
+
         function toggleWidget(widget, $event) {
             if (widget in $scope.widgets) removeWidget(widget);
             else addWidget(widget);
