@@ -103,6 +103,16 @@ public interface DashboardService {
      */
     
     String getDashboardOwner(String dashboardTitle);
+
+    /**
+     * Get component
+     * @Param component Id
+     * @return Component
+     *
+     */
+
+    Component getComponent(ObjectId componentId);
+
 }
 
 
