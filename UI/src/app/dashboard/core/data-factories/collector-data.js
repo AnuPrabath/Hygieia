@@ -18,8 +18,16 @@
             itemsByType: itemsByType,
             createCollectorItem: createCollectorItem,
             collectorsByType: collectorsByType,
-            encrypt: encrypt
+            encrypt: encrypt,
+            getCollecterItem:getCollectorItem
+
         };
+
+        function getCollectorItem(id) {
+            return $http.get(itemRoute + '/'+id).then(function (response) {
+                return response.data;
+            });
+        }
 
         function itemsByType(type, params) {
             return $http.get(itemsByTypeRoute + type, {params: params}).then(function (response) {

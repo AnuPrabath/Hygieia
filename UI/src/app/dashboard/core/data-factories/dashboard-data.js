@@ -30,7 +30,8 @@
             delete: deleteDashboard,
             rename: renameDashboard,
             upsertWidget: upsertWidget,
-            types: types
+            types: types,
+            getComponent:getComponent
         };
 
         // reusable helper
@@ -55,6 +56,12 @@
         {
             return getPromise(HygieiaConfig.local ? testOwnedRoute : myownerRoute + "/" + id );
         }
+
+        //gets component from componentId
+        function getComponent(componentId){
+            return getPromise(HygieiaConfig.local ? testOwnedRoute : myComponentRoute+ '/' + componentId);
+        }
+
 
         // gets info for a single dashboard including available widgets
         function detail(id) {

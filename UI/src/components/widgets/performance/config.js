@@ -7,9 +7,8 @@
 	angular.module(HygieiaConfig.module).controller('performanceConfigController',
 			performanceConfigController);
 
-	performanceConfigController.$inject = [ 'modalData', '$modalInstance',
-			'collectorData' ];
-	function performanceConfigController(modalData, $modalInstance, collectorData) {
+	performanceConfigController.$inject = [ 'modalData', '$uibModalInstance', 'collectorData' ];
+	function performanceConfigController(modalData, $uibModalInstance, collectorData) {
 		var ctrl = this;
 		var widgetConfig = modalData.widgetConfig;
         var component = modalData.dashboard.application.components[0];
@@ -43,7 +42,7 @@
                 collectorItemIds: collectorItems
             };
             // pass this new config to the modal closing so it's saved
-            $modalInstance.close(postObj);
+            $uibModalInstance.close(postObj);
         }
 
 

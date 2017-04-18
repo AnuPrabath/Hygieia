@@ -25,6 +25,9 @@ import com.capitalone.dashboard.service.ServiceService;
 import com.capitalone.dashboard.service.TeamService;
 import com.capitalone.dashboard.service.TestResultService;
 import com.capitalone.dashboard.util.PaginationHeaderUtility;
+import com.capitalone.dashboard.service.Monitor2Service;
+import com.capitalone.dashboard.service.PerformanceService;
+import com.capitalone.dashboard.service.SystemConfigService;
 
 /**
  * Spring context configuration for Testing purposes
@@ -36,7 +39,7 @@ public class TestConfig {
 	public AuthenticationService authenticationService() {
 		return Mockito.mock(AuthenticationService.class);
 	}
-
+	
 	@Bean
 	public AuthenticationResponseService authenticationResponseService() {
 		return Mockito.mock(AuthenticationResponseService.class);
@@ -96,62 +99,64 @@ public class TestConfig {
 	public ScopeService scopeService() {
 		return Mockito.mock(ScopeService.class);
 	}
-
+	
 	@Bean
 	public EncryptionService encryptionService() {
 		return Mockito.mock(EncryptionService.class);
 	}
 
-  @Bean
-  public BinaryArtifactService artifactService() {
-    return Mockito.mock(BinaryArtifactService.class);
-  }
+    @Bean
+    public BinaryArtifactService artifactService() {
+        return Mockito.mock(BinaryArtifactService.class);
+    }
 
 	@Bean
 	public PipelineService pipelineService() {
 		return Mockito.mock(PipelineService.class);
 	}
-
+	
 	@Bean
-  public CloudInstanceService cloudInstanceService() {
-    return Mockito.mock(CloudInstanceService.class);
-  }
+    public CloudInstanceService cloudInstanceService() {
+        return Mockito.mock(CloudInstanceService.class);
+    }
 
-  @Bean
-  public CloudSubnetService cloudSubnetService() {
-    return Mockito.mock(CloudSubnetService.class);
-  }
+    @Bean
+    public CloudSubnetService cloudSubnetService() {
+        return Mockito.mock(CloudSubnetService.class);
+    }
 
-  @Bean
-  public CloudVirtualNetworkService cloudVirtualNetworkService() {
-    return Mockito.mock(CloudVirtualNetworkService.class);
-  }
+    @Bean
+    public CloudVirtualNetworkService cloudVirtualNetworkService() {
+        return Mockito.mock(CloudVirtualNetworkService.class);
+    }
 
-  @Bean
-  public CloudVolumeService cloudVolumeService() {
-    return Mockito.mock(CloudVolumeService.class);
-  }
-  @Bean
-  public PaginationHeaderUtility paginationHeaderUtility() {
-  	return Mockito.mock(PaginationHeaderUtility.class);
-  }
+    @Bean
+    public CloudVolumeService cloudVolumeService() {
+        return Mockito.mock(CloudVolumeService.class);
+    }
+    
+    @Bean
+    public PaginationHeaderUtility paginationHeaderUtility() {
+    	return Mockito.mock(PaginationHeaderUtility.class);
+    }
+
 	@Bean
 	public TeamService teamService() {
 		return Mockito.mock(TeamService.class);
 	}
-  @Bean
-  public PerformanceService performanceService() {
+
+	@Bean
+	public PerformanceService performanceService(){
 		return Mockito.mock(PerformanceService.class);
 	}
 
-  @Bean
-  public CloudVolumeService cloudVolumeService() {
-      return Mockito.mock(CloudVolumeService.class);
-  }
-
-  @Bean
-  public PerformanceService performanceService() {
-		return Mockito.mock(PerformanceService.class);
+	@Bean
+	public Monitor2Service monitor2Service(){
+		return Mockito.mock(Monitor2Service.class);
 	}
 
+	@Bean
+	public SystemConfigService systemConfigService(){
+		return Mockito.mock(SystemConfigService.class);
+	}
 }

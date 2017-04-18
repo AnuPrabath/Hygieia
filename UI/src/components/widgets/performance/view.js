@@ -5,8 +5,8 @@
         .module(HygieiaConfig.module)
         .controller('performanceViewController', performanceViewController);
 
-    performanceViewController.$inject = ['$q', '$scope','performanceData', '$modal', 'collectorData'];
-    function performanceViewController($q, $scope, performanceData, $modal, collectorData) {
+    performanceViewController.$inject = ['$q', '$scope','performanceData', '$uibModal', 'collectorData'];
+    function performanceViewController($q, $scope, performanceData, $uibModal, collectorData) {
         var ctrl = this;
 
         ctrl.callsChartOptions = {
@@ -105,15 +105,19 @@
             };
 
             console.log($scope.widgetConfig.componentId);
-
+            var count =0;
             collectorData.itemsByType('appPerformance').then(function(data){
               data.forEach(function(element){
                 if (element.enabled){
                   ctrl.appname = element.description;
                   ctrl.appID = element.options.appID;
                   ctrl.appname2 = element.options.appName;
+                    count++;
                 }
+
               });
+
+
 
               performanceData.appPerformance({componentId: $scope.widgetConfig.componentId}).then(function(data) {
                   processResponse(data.result);
@@ -168,9 +172,23 @@
             var bad = [];
 
 
+            var dart = _(data).sortBy('timeStamp').__wrapped__[0];
+            var inst = dart.instances;
+            var vals=[];
+            for(var key in inst) {
+                if(inst.hasOwnProperty(key)) {
+                    vals = inst[key];
+                }
+            }
+            var collectorItemId = data[0];
+            var cId = collectorItemId.collectorItemId;
+            collectorData.getCollecterItem(cId).then(function(result) {
+                    var res = result;
+                ctrl.appname = res.description;
+                }
+            );
 
-
-            _(data).sortBy('timeStamp').__wrapped__[0].metrics.forEach(function(innerelem){
+            _(vals).forEach(function(innerelem){
               if (innerelem.name === 'Business Transaction Health Percent'){
                 ctrl.businessavg = Math.round(innerelem.value*100 *10)/10;
               }
@@ -205,7 +223,16 @@
               var metrictime = element.timestamp;
               var mins = (metrictime/60000) % 60;
               var hours = (((metrictime/60/60000) % 24) + 19) % 24;
-              element.metrics.forEach(function(innerelem){
+
+                var inst = element.instances;
+                var vals=[];
+                for(var key in inst) {
+                    if(inst.hasOwnProperty(key)) {
+                        vals = inst[key];
+                    }
+                }
+
+                vals.forEach(function(innerelem){
                 if (innerelem.name === "Violation Object"){
                   healthruleviolations.push({
                     metrictime: metrictime,

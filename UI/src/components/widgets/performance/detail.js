@@ -5,8 +5,8 @@
         .module(HygieiaConfig.module)
         .controller('PerformanceDetailController', PerformanceDetailController);
 
-    PerformanceDetailController.$inject = ['$modalInstance','index', 'warnings', 'good', 'bad', 'DashStatus'];
-    function PerformanceDetailController($modalInstance, index, warnings, good, bad, DashStatus) {
+    PerformanceDetailController.$inject = ['$uibModalInstance','index', 'warnings', 'good', 'bad', 'DashStatus'];
+    function PerformanceDetailController($uibModalInstance, index, warnings, good, bad, DashStatus) {
         /*jshint validthis:true */
         var ctrl = this;
 
