@@ -131,7 +131,7 @@
 
         function showDetail(evt){
 
-              $modal.open({
+            $uibModal.open({
                 controller: 'PerformanceDetailController',
                 controllerAs: 'detail',
                 templateUrl: 'components/widgets/performance/detail.html',
