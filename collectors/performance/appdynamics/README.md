@@ -44,13 +44,13 @@ for information about sourcing this properties file.
     appdynamics.cron=1 * * * * *
 
     #Appdynamics server (required)
-    appdynamics.instanceUrl=http://appdyn-hqa-c01.kdc.company.com
+    appdynamics.instanceUrl=http://appdynamics.company.com
 
     #Appdynamics Username (required)
-    appdynamics.username=APPD_USERNAME
+    appdynamics.username=APPD_USERNAME (if multi-tenancy APPD_USERNAME@TENANT)
 
     #Appdynamics Password (required)
     appdynamics.password=APPD_PASSWORD
 
     #Appdynamics Dashboard (required)
-    appdynamics.dashboardUrl=http://appdyn-hqa-c01.kdc.company.com/controller/#/location=APP_DASHBOARD&timeRange=last_15_minutes.BEFORE_NOW.-1.-1.15&application=%s&dashboardMode=force
+    appdynamics.dashboardUrl=http://appdynamics.company.com/controller/#/location=APP_DASHBOARD&timeRange=last_15_minutes.BEFORE_NOW.-1.-1.15&application=%s&dashboardMode=force
