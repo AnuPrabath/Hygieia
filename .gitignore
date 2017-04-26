@@ -38,9 +38,9 @@ logs
 
 # Eclipse specific ignore settings
 .settings/
-*.properties
-/dashboard.properties
-
-/appdynamics-collector/src/main/resources/appdynamics.properties
-/appdynamics-collector/appdynamics.properties
-/api/api.properties
+.project
+.pmdruleset.xml
+.pmd
+.classpath
+application.properties
+Contact GitHub API Training Shop Blog About

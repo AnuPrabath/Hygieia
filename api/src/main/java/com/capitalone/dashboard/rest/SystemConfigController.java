@@ -13,19 +13,17 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 /**
  * Service to expose system wide configuration settings
- * 
- * @author <a href="mailto:MarkRx@users.noreply.github.com">MarkRx</a>
  */
 @RestController
 public class SystemConfigController {
 
 	private final SystemConfigService service;
-	
+
 	@Autowired
 	public SystemConfigController(SystemConfigService service) {
 		this.service = service;
 	}
-	
+
 	@RequestMapping(value = "/config", method = GET, produces = APPLICATION_JSON_VALUE)
 	public SystemConfigResponse getSystemConfig() {
 		return service.getSystemConfig();
