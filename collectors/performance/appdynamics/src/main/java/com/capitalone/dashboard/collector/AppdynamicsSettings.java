@@ -11,11 +11,11 @@ import java.util.List;
 @ConfigurationProperties(prefix = "appdynamics")
 public class AppdynamicsSettings {
     private String username;//="srvHygieiaPerf";
-    private String password;//="Capital1";
+    private String password;//="******";
     private String account;
     private String cron;//="1 * * * * *";
     private Integer timeWindow = 15; //default to 15 minutes
-    private String instanceUrls;//="http://appdyn-hqa-c01.kdc.capitalone.com,http://appdyn-hqa-c01.kdc.capitalone.com,http://appdyn-hqa-c01.kdc.capitalone.com";
+    private String instanceUrls;//="http://abc****.capitalone.com,http://abc.kdc.capitalone.com,http://abc**.capitalone.com";
 
     public String getInstanceUrls() {
         return instanceUrls;
